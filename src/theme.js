@@ -11,21 +11,21 @@ export const getDesignTokens = (mode) => ({
             main: '#d1d7e0', // 
           },
           background: {
-            default: '#a8d0e6', 
+            default: '#fcfafa', 
             paper: '#8590aa',   
           },
         }
       : {
           // Dark mode
           primary: {
-            main: '#141414', 
+            main: '#050a44', 
           },
           secondary: {
             main: '#141414', 
           },
           background: {
             default: '#0d0d0d', 
-            paper: '#2d4159',   
+            paper: '#2c2e3a',   
           },
         }),
   },
