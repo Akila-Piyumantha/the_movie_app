@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Note: In a real application, API keys should be kept secure
 // For a production app, these requests should be proxied through a backend
-const API_KEY = 'https://api.themoviedb.org/3';  // Replace with an actual TMDb API key
+const API_KEY = 'e4b6b901315351ef325ffd9bb9b8f1b2';  // Replace with an actual TMDb API key
 const BASE_URL = 'https://api.themoviedb.org/3';
 const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/';
 
