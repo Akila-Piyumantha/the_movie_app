@@ -51,7 +51,11 @@ const MovieCard = ({ movie, showRating = true }) => {
         flexDirection: 'column',
         position: 'relative',
         margin: '8px',
-        boxShadow: 3
+        boxShadow: 4,
+        borderRadius: 4,
+        backdropFilter: 'blur(10px)',
+        boxShadow: '0 8px 32px 0 rgba( 31, 38, 135, 0.37 )',
+        border: '1px solid rgba(255, 255, 255, 0.18)'
       }}
     >
       <CardActionArea onClick={handleCardClick} sx={{ height: '100%' }}>

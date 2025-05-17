@@ -75,11 +75,11 @@ const Login = () => {
           border: '1px solid rgba(255, 255, 255, 0.18)',
         }}
       >
-        <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+        <Avatar sx={{ m: 1, bgcolor: '#6e0202' }}>
           <LockOutlinedIcon />
         </Avatar>
         
-        <Typography component="h1" variant="h5" sx={{ color: '#fff' }}>
+        <Typography component="h1" variant="h5" sx={{ color: '#000000',fontWeight: 'bold' }}>
           Sign in to Movie Explorer
         </Typography>
         
@@ -98,11 +98,13 @@ const Login = () => {
             label="Username"
             name="username"
             autoComplete="username"
+            
+            color='black'
             autoFocus
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             InputProps={{
-              style: { backgroundColor: 'rgba(255,255,255,0.7)', borderRadius: 4 }
+              style: { backgroundColor: 'rgba(252, 150, 150, 0.7)', borderRadius: 4 }
             }}
           />
           
@@ -114,11 +116,12 @@ const Login = () => {
             label="Password"
             type="password"
             id="password"
+            color='black'
             autoComplete="current-password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             InputProps={{
-              style: { backgroundColor: 'rgba(255,255,255,0.7)', borderRadius: 4 }
+              style: { backgroundColor: 'rgba(252, 150, 150, 0.7)', borderRadius: 4 }
             }}
           />
           
