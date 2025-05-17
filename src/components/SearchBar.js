@@ -22,7 +22,7 @@ const SearchBar = () => {
   };
 
   return (
-    <Box sx={{ mb: 4 }}>
+    <Box sx={{ mb: 4, backgroundColor: 'secondary.main' }} >
       <Paper
         component="form"
         onSubmit={handleSubmit}
@@ -32,10 +32,11 @@ const SearchBar = () => {
           alignItems: 'center',
           width: '100%',
           border: `1px solid ${theme.palette.divider}`,
+          backgroundColor: 'secondary.main'
         }}
       >
         <InputBase
-          sx={{ ml: 1, flex: 1 }}
+          sx={{ ml: 1, flex: 1 ,backgroundColor: 'secondary.main' }}
           placeholder="Search for movies..."
           inputProps={{ 'aria-label': 'search movies' }}
           value={query}

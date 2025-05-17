@@ -3,30 +3,31 @@ export const getDesignTokens = (mode) => ({
     mode,
     ...(mode === 'light'
       ? {
-          // Light mode
+          // Light mode (still dark-themed, cyberpunk-inspired)
           primary: {
-            main: '#1976d2',
+            main: '#24305e', // 
           },
           secondary: {
-            main: '#f50057',
+            main: '#d1d7e0', // 
           },
           background: {
-            default: '#f5f5f5',
-            paper: '#ffffff',
+            default: '#a8d0e6', 
+            paper: '#8590aa',   
           },
         }
       : {
           // Dark mode
           primary: {
-            main: '#90caf9',
+            main: '#141414', 
           },
           secondary: {
-            main: '#f48fb1',
+            main: '#2d283e', 
           },
           background: {
-            default: '#121212',
-            paper: '#1e1e1e',
+            default: '#0d0d0d', 
+            paper: '#4c495d',   
           },
         }),
   },
 });
+

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { 
-  Box, 
-  TextField, 
-  Button, 
-  Typography, 
-  Paper, 
+import {
+  Box,
+  TextField,
+  Button,
+  Typography,
+  Paper,
   Avatar,
   Alert
 } from '@mui/material';
@@ -16,7 +16,7 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const { login } = useMovieContext();
-
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     
@@ -30,32 +30,56 @@ const Login = () => {
       setError('Invalid username or password');
     }
   };
-
+  
   return (
-    <Box 
+    <Box
       sx={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        width: '100%',
+        height: '100%',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        minHeight: '80vh'
+        '&::before': {
+          content: '""',
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          backgroundImage: 'url("./back.jpg")',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          zIndex: -1,
+        }
       }}
     >
-      <Paper 
-        elevation={3}
+      <Paper
+        elevation={0}
         sx={{
           padding: 4,
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
           width: '100%',
-          maxWidth: 400
+          maxWidth: 400,
+          backgroundColor: 'rgba(255, 255, 255, 0.1)', // semi-transparent white
+          borderRadius: 4,
+          backdropFilter: 'blur(10px)',
+          boxShadow: '0 8px 32px 0 rgba( 31, 38, 135, 0.37 )',
+          border: '1px solid rgba(255, 255, 255, 0.18)',
         }}
       >
         <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
           <LockOutlinedIcon />
         </Avatar>
         
-        <Typography component="h1" variant="h5">
+        <Typography component="h1" variant="h5" sx={{ color: '#fff' }}>
           Sign in to Movie Explorer
         </Typography>
         
@@ -77,6 +101,9 @@ const Login = () => {
             autoFocus
             value={username}
             onChange={(e) => setUsername(e.target.value)}
+            InputProps={{
+              style: { backgroundColor: 'rgba(255,255,255,0.7)', borderRadius: 4 }
+            }}
           />
           
           <TextField
@@ -90,6 +117,9 @@ const Login = () => {
             autoComplete="current-password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            InputProps={{
+              style: { backgroundColor: 'rgba(255,255,255,0.7)', borderRadius: 4 }
+            }}
           />
           
           <Button
@@ -101,7 +131,7 @@ const Login = () => {
             Sign In
           </Button>
           
-          <Typography variant="body2" color="text.secondary" align="center">
+          <Typography variant="body2" color="white" align="center">
             Note: This is a demo app. Any username and password will work.
           </Typography>
         </Box>

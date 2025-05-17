@@ -25,7 +25,7 @@ const Header = ({ toggleColorMode, mode }) => {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{ backgroundColor: 'primary.main' }}>
       <Toolbar>
         <MovieIcon sx={{ mr: 1 }} />
         <Typography

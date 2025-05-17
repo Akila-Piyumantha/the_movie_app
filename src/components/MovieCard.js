@@ -1,11 +1,11 @@
 import React from 'react';
-import { 
-  Card, 
-  CardActionArea, 
-  CardMedia, 
-  CardContent, 
-  Typography, 
-  Box, 
+import {
+  Card,
+  CardActionArea,
+  CardMedia,
+  CardContent,
+  Typography,
+  Box,
   IconButton,
   Tooltip,
   Rating,
@@ -16,6 +16,11 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { getImageUrl, IMAGE_SIZES } from '../services/api';
 import { useMovieContext } from '../context/MovieContext';
+
+// Constant card dimensions
+const CARD_WIDTH = 240;
+const CARD_HEIGHT = 420;
+const POSTER_HEIGHT = 300;
 
 const MovieCard = ({ movie, showRating = true }) => {
   const navigate = useNavigate();
@@ -38,40 +43,43 @@ const MovieCard = ({ movie, showRating = true }) => {
   const releaseYear = movie.release_date ? new Date(movie.release_date).getFullYear() : 'N/A';
   
   return (
-    <Card 
-      sx={{ 
-        height: '100%', 
-        display: 'flex', 
+    <Card
+      sx={{
+        width: CARD_WIDTH,
+        height: CARD_HEIGHT,
+        display: 'flex',
         flexDirection: 'column',
-        position: 'relative' 
+        position: 'relative',
+        margin: '8px',
+        boxShadow: 3
       }}
     >
-      <CardActionArea onClick={handleCardClick}>
+      <CardActionArea onClick={handleCardClick} sx={{ height: '100%' }}>
         <CardMedia
           component="img"
-          height="300"
+          height={POSTER_HEIGHT}
           image={getImageUrl(movie.poster_path, IMAGE_SIZES.POSTER) || '/placeholder-movie.png'}
           alt={movie.title}
           sx={{ objectFit: 'cover' }}
         />
-        <CardContent>
+        <CardContent sx={{ height: CARD_HEIGHT - POSTER_HEIGHT, overflow: 'hidden' }}>
           <Typography gutterBottom variant="h6" component="div" noWrap>
             {movie.title}
           </Typography>
           <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <Chip 
-              label={releaseYear} 
-              size="small" 
-              variant="outlined" 
-              sx={{ mr: 1 }} 
+            <Chip
+              label={releaseYear}
+              size="small"
+              variant="outlined"
+              sx={{ mr: 1 }}
             />
             {showRating && movie.vote_average > 0 && (
               <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                <Rating 
-                  value={movie.vote_average / 2} 
-                  precision={0.5} 
-                  size="small" 
-                  readOnly 
+                <Rating
+                  value={movie.vote_average / 2}
+                  precision={0.5}
+                  size="small"
+                  readOnly
                 />
                 <Typography variant="body2" color="text.secondary" sx={{ ml: 0.5 }}>
                   {movie.vote_average.toFixed(1)}
